@@ -52,6 +52,7 @@ def main(notification_method: str, scenario: str, threshold: float):
     # Create balance and add observers
     manager = AccountManager()
     balance = Balance.get_instance()
+    balance.reset()
 
     # Add print observer
     balance.register_observer(PrintObserver())

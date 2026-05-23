@@ -20,6 +20,14 @@ class TestTransactionAdapter(unittest.TestCase):
         with self.assertRaises(ValueError):
             adapter.to_transaction()
 
+    def test_adapter_fails_with_unknown_transaction_type(self):
+        ext_txn = ExternalFreelanceIncome(500, "INV-12345", "Website development")
+        ext_txn.typ = "bonus"
+        adapter = TransactionAdapter(ext_txn)
+
+        with self.assertRaises(ValueError):
+            adapter.to_transaction()
+
 
 if __name__ == "__main__":
     unittest.main()

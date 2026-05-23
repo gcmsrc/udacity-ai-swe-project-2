@@ -16,7 +16,8 @@ class Balance:
         return cls._instance
 
     def register_observer(self, observer):
-        self._observers.append(observer)
+        if observer not in self._observers:
+            self._observers.append(observer)
 
     def unregister_observer(self, observer):
         self._observers.remove(observer)

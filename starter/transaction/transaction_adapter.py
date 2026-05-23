@@ -23,3 +23,5 @@ class TransactionAdapter:
             return BaseTransaction(
                 self.external_transaction.amount, TransactionCategory.EXPENSE
             )
+
+        raise ValueError(f"Unknown transaction type: {transaction_type}")
