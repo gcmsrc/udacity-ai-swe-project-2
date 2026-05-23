@@ -8,8 +8,6 @@ class Balance:
     """Singleton to track the balance."""
 
     _instance = None
-    _transactions = []
-    _observers = []
 
     @classmethod
     def get_instance(cls):
@@ -30,6 +28,8 @@ class Balance:
     def __init__(self):
         """Initialize the balance. Prevent direct instantiation."""
         self.balance = 0.0
+        self._transactions = []
+        self._observers = []
 
     def reset(self):
         """Reset the net balance to zero."""
